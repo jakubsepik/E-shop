@@ -3,5 +3,5 @@ Ponuka
 id,názov,počet,cena
 
 2.tabuľka
-Ucty
-id,meno,mail,telefon,adresa
+Objednavky
+id,meno,mail,telefon,adresa,id_ponuky,pocet
