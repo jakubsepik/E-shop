@@ -4,4 +4,4 @@ id,názov,počet,cena
 
 2.tabuľka
 Ucty
-id,meno,heslo,mail,telefon,adresa
+id,meno,mail,telefon,adresa
