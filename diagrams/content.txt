@@ -1,0 +1,7 @@
+1. tabuľka
+Ponuka
+id,názov,počet,cena
+
+2.tabuľka
+Ucty
+id,meno,heslo,mail,telefon,adresa
