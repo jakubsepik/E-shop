@@ -1,7 +1,7 @@
 1. tabuľka
-Ponuka
-id,názov,počet,cena
+items
+id,name,amount,price
 
 2.tabuľka
-Objednavky
-id,meno,mail,telefon,adresa,id_ponuky,pocet
+orders
+id,name,email,tel_num,adrress,item_id,amount,price
