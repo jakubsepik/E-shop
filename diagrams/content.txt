@@ -1,7 +1,7 @@
 1. tabuľka
 items
-id,name,amount,price
+item_id,name,amount,price
 
 2.tabuľka
 orders
-id,name,email,tel_num,adrress,item_id,amount,price
+order_id,name,email,tel_num,adrress,item_id,amount,price
