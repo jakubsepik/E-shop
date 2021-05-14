@@ -8,4 +8,4 @@ order_id,name,surname,email,tel_num,adrress,status
 
 3. tabuľka
 order_items
-order_id,item_id,amount,price
+order_id,item_id,count,price
