@@ -1,6 +1,6 @@
 1. tabuľka
 items
-item_id,name,amount,price
+item_id,name,count,price
 
 2.tabuľka
 orders
