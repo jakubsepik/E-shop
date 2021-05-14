@@ -4,4 +4,8 @@ item_id,name,amount,price
 
 2.tabuľka
 orders
-order_id,name,email,tel_num,adrress,item_id,amount,price
+order_id,name,surname,email,tel_num,adrress,status
+
+3. tabuľka
+order_items
+order_id,item_id,amount,price
