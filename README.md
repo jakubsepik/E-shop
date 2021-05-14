@@ -8,5 +8,5 @@
 * blokový diagram (3-úrovňový model aplikácie) -> done
 * diagram prípadov použitia (vymenovanie činností používateľa) -> done
 * E-R diagram pre SQL databázu, ktorá má aspoň 2 tabuľky -> done
-* diagram tried pre objektové programovanie (ku každej SQL tabuľke jedna trieda)
+* diagram tried pre objektové programovanie (ku každej SQL tabuľke jedna trieda) -> done
 * diagram aktivity (vývojový diagram) pre hlavnú časť aplikácie (business logic layer)
