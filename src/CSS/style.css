@@ -1,0 +1,157 @@
+header{
+	background-color: rgb(212,92,12);
+	height: 80px;
+	text-align: center;
+	width: 100%;
+	margin: 0 auto;
+}
+
+article{
+	width: 100%;
+	background-color: white;
+}
+
+nav{
+	height: 200px;
+	width: 100%;
+}
+
+.nadpis{
+	font-size: 70px;
+	font-weight: bold;
+}
+
+.logo{
+	height: 100%;
+	margin-left: 10%;
+	float: left;
+	display: block;
+}
+
+.idk{
+	padding-top: 60px;
+	float: right;
+	text-align: right;
+	margin-right: 13%;
+}
+
+.idk h1{
+	font-size: 50px;
+	font-weight: bold;
+	font-style: italic;
+	color: rgb(212,92,12);
+}
+
+.idk p{
+	font-style: italic;
+	font-size: 18px;
+}
+
+.kontakt{
+	height: 40px;
+	background-color: rgb(212,92,12);
+	line-height: 45px;
+}
+
+.kontakt div p{
+	font-weight: 600;
+	color: black;
+	font-size: 20px;
+}
+
+.phone{
+	text-align: center;
+	width: 50%;
+	float: left;
+}
+
+.email{
+	text-align: center;
+	width: 50%;
+	float: right;
+}
+
+.phone p{
+	padding-left: 20%;
+}
+
+.email p{
+	padding-right: 20%;
+}
+
+.produkty{
+	width: 100%;
+	text-align: center;
+	margin: 2% 0;
+	font-size: 24px;
+	font-weight: 600;
+}
+
+.produkty p{
+	font-size: 
+}
+
+.row {
+	width: 80%;
+	margin: 0 auto;
+    display: flex;
+    text-align: center;
+}
+
+.item{
+    flex: 1;
+    margin: 1% 0.5%;
+}
+
+.item img{
+	width: 100%;
+}
+
+.item:hover{
+	box-shadow: 5px 5px 15px -3px rgba(0,0,0,0.7);
+}
+
+.item img{
+	display: inline-block;
+	width: 100%;
+}
+
+.item h2{
+	font-weight: 900;
+	font-size: 21px;
+	padding: 10px 0;
+}
+
+.item p{
+	font-size: 17px;
+	padding-bottom: 15px;
+}
+
+.kosik{
+	width: 75%;
+	margin: 0 auto;
+	font-size: 20px;
+	line-height: 45px;
+	margin-bottom: 10px;
+	background-color: red;
+	border-radius: 10px;
+	background-color: rgb(212,92,12);
+	color: black;
+}
+
+.kosik:hover{
+	color: white;
+	background-color: #E67326;
+}
+
+footer{
+	margin-top: 5%;
+	background-color: black;
+	color: white;
+	width: 100%;
+	text-align: center;
+}
+
+footer p{
+	padding: 10px;
+}
