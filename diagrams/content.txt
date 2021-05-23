@@ -1,7 +1,11 @@
 1. tabuľka
-Ponuka
-id,názov,počet,cena
+items
+item_id,name,count,price
 
 2.tabuľka
-Ucty
-id,meno,heslo,mail,telefon,adresa
+orders
+order_id,name,surname,email,tel_num,adrress,status
+
+3. tabuľka
+order_items
+order_id,item_id,count,price
