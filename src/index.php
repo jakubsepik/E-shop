@@ -1,23 +1,17 @@
 <?php
 include_once("Classes.php");
-session_start();
-$_SESSION['items']=array("cervena"=>1,100=>"10");
+
 if(isset($_POST['name'])){
   echo $_POST['name'];
   echo print_r($_SESSION['items']);
 }
+$config = json_decode(file_get_contents("config.json"));
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "test";
-
-$mysqli = new mysqli($servername,$username,$password,$database);
+$mysqli = new mysqli($config->servername,$config->username,$config->password,$config->database);
 
 
 $items_array = array();
-$sql = "SELECT * FROM items";
-$result = $mysqli->query($sql);
+$result = $mysqli->query("SELECT * FROM items");
 
 if ($result->num_rows > 0) {
   // output data of each row
@@ -42,12 +36,14 @@ foreach($items_array as $item){
 ?>
 
 
-<form action="index.php" method="POST">
+<form action="shop.php" method="POST">
 <input type="text" name="name" placeholder="Your name">
 <input type="text" name="surname">
 <input type="email" name="email">
 <input type="tel" name="tel_num" pattern="^[0-9]{4} ?[0-9]{3} ?[0-9]{3}$" title="Write your number in pattern: XXXX XXX XXX">
 <input type="text" name="address">
+<input type="hidden" name="items">
 <input type="submit" value="Submit">
+
 </form>
 
