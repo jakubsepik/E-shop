@@ -1,3 +1,6 @@
+<?php
+header('Access-Control-Allow-Origin: *');
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +11,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="utf-8">
 
-	<script src="https://kit.fontawesome.com/f40ecbd809.js" crossorigin="anonymous"></script>
+	<script src="font_awesome.js"></script>
 </head>
 <body class="main">
 
@@ -83,7 +86,7 @@ foreach($items_array as $item){
     <img src="img/'.$data[0].'.jpg">
 
     <h2>'.$data[1].'</h2>
-    <p>'.$data[3].'</p>
+    <p>'.$data[3].'€</p>
     <a href="">
       <div class="kosik">
         <i class="fas fa-shopping-cart"></i>
@@ -94,7 +97,6 @@ foreach($items_array as $item){
   if(++$row%4==0)
   echo '</div><div class="row">';
 }
-
 
 ?>
 </div>
