@@ -48,7 +48,7 @@ nav{
 }
 
 .kontakt{
-	height: 40px;
+	height: 45px;
 	background-color: rgb(212,92,12);
 	line-height: 45px;
 }
@@ -111,11 +111,6 @@ nav{
 	box-shadow: 5px 5px 15px -3px rgba(0,0,0,0.7);
 }
 
-.item img{
-	display: inline-block;
-	width: 100%;
-}
-
 .item h2{
 	font-weight: 900;
 	font-size: 21px;
@@ -137,11 +132,36 @@ nav{
 	border-radius: 10px;
 	background-color: rgb(212,92,12);
 	color: black;
+	cursor: pointer;
 }
 
 .kosik:hover{
 	color: white;
 	background-color: #E67326;
+}
+
+.cart{
+	box-shadow: 2px 2px 7px 1px rgba(0,0,0,0.22);
+	font-size: 25px;
+	position: fixed;
+	bottom: 7%;
+	right: 3.5%;
+	padding: 15px;
+	border-radius: 50%;
+	background-color: white;
+	color: black;
+	cursor: pointer;
+}
+
+.cartContent{
+	width: 70%;
+	height: 70%;
+	background-color: white;
+	margin: 0 auto;
+	position: relative;
+  	top: 15%;
+  	text-align: center;
+  	border-radius: 10px;
 }
 
 footer{
@@ -152,6 +172,241 @@ footer{
 	text-align: center;
 }
 
+.closeX{
+	
+}
+
 footer p{
 	padding: 10px;
+}
+
+.overlay {
+  	height: 100%;
+  	width: 0;
+  	position: fixed;
+  	z-index: 1;
+  	top: 0;
+  	left: 0;
+  	background-color: rgb(0,0,0);
+  	background-color: rgba(0,0,0, 0.6);
+  	overflow-x: hidden;
+}
+
+.overlay-content {
+  	position: relative;
+  	top: 25%;
+  	width: 50%;
+  	height: 50%;
+  	text-align: center;
+  	margin-top: 30px;
+  	background-color: white;
+  	margin: 0 auto;
+  	border-radius: 10px;
+}
+
+.closebtn{
+	position: absolute;
+	color: rgb(212,92,12);
+  	text-decoration: none;
+  	font-size: 50px;
+  	right: 25.5%;
+  	top: 24.5%;
+  	z-index: 101;
+}
+
+.obrazokKosik{
+	height: 100%;
+	width: 50%;
+	float: left;	
+}
+
+.obrazokKosik img{
+	width: 80%;
+	position: sticky;
+	left: 20%;
+	top: 33%;
+}
+
+.info{
+	width: 50%;
+	height: 100%;
+	float: left;
+	text-align: center;
+}
+
+.info h2{
+	font-size: 25px;
+	font-weight: 900;
+	padding: 50px 0 80px 0;
+}
+
+
+.info p, .info label, .info span{
+	font-size: 18px;
+	text-align: left;
+	padding: 10px;
+	display: block;
+	font-weight: 600;
+}
+
+.info span{
+	float: left;
+}
+
+input[type=number] {
+	width: 15%;
+	font-size: 18px;
+}
+
+input[type=submit] {
+	position: sticky;
+	width: 30%;
+	left: 65%;
+	top: 68.5%;
+	font-size: 16px;
+	padding: 6.5px;
+	font-weight: 300;
+	border-radius: 5px;
+	background-color: rgb(212,92,12);
+	cursor: pointer;
+	color: white;
+}
+
+input[type=submit]:hover{
+	background-color: #E67326;
+}
+
+@media (min-width: 700px) and (max-width: 1025px){
+	.logo{
+		margin-left: 6%;
+	}
+
+	.idk{
+		margin: 0;
+		padding-right: 8%;
+	}
+
+	.row{
+		display: inline-block;
+		margin-left: 10%;
+	}
+
+	.item{
+		display: inline-block;
+		width: 48.2%;
+	}
+
+	.kosik{
+		width: 60%;
+	}
+
+	.cart{
+		font-size: 22px;
+	}
+
+	.overlay-content{
+		width: 75%;
+	}
+
+	.obrazokKosik img{
+		width: 100%;
+	}
+
+	.closebtn{
+  		right: 14%;
+	}
+
+	input[type=submit] {
+		left: 75%;
+	}
+}
+
+@media (max-width: 699px){
+	
+	header{
+		height: 60px;
+	}
+
+	.nadpis{
+		font-size: 55px;
+	}
+
+	nav{
+		height: 150px;
+	}
+
+	.idk h1{
+		font-size: 30px;
+	}
+
+	.logo{
+		margin-left: 0;
+	}
+
+	.idk{
+		margin-right: 2%;
+		float: none;
+		padding-top: 30px;
+	}
+
+	.kontakt{
+		height: 70px;
+		line-height: 35px;
+	}
+
+	.phone{
+		width: 100%;
+		border-bottom: 1px solid black;
+	}
+
+	.email{
+		width: 100%;
+		float: none;
+	}
+
+	.phone p, .email p{
+		padding: 0;
+	}
+
+	.row{
+		display: block;
+	}
+
+	.item{
+		display: block;
+		width: 80%;
+		margin: 0 auto
+	}
+
+	.cart{
+		font-size: 18px;
+	}
+
+	.overlay-content{
+		width: 100%;
+	}
+
+	.obrazokKosik{
+		display: none;
+	}
+
+	.info{
+		width:100%;
+	}
+
+	.info h2{
+		font-weight: 900;
+	}
+
+	.info span, .info label, .info p{
+		padding-left: 5%;
+	}
+
+	.closebtn{
+  		right: 1%;
+	}
+
+	.info h2{
+		padding: 50px 0 50px 0;
+	}
 }
