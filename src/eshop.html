@@ -4,6 +4,7 @@
 	<title>nabytok.sk</title>
 	<link rel="stylesheet" type="text/css" href="CSS/all.min.css">
 	<link rel="stylesheet" type="text/css" href="CSS/fontawesome.min.css">
+	
 	<link rel="stylesheet" type="text/css" href="CSS/reset.css">
 	<link rel="stylesheet" type="text/css" href="CSS/style.css">
 
@@ -215,12 +216,9 @@
 		</section>
 	</article>
 
-
-	<a href="" title="Prejsť na nákupný košík">
-		<div class="cart">
-			<i class="fas fa-shopping-cart"></i>
-		</div>
-	</a>
+	<div class="cart" onclick="openCart()">
+		<i class="fas fa-shopping-cart"></i>
+	</div>
 
 
 	<div id="myNav" class="overlay">
@@ -235,23 +233,31 @@
  		 	<div class="info">
  		 		<h2 id="name"></h2>
 
+ 		 		<span>Cena za kus:</span>
  		 		<p id="cena"></p>
  		 		<label for="Pocet kusov">Počet kusov:
- 		 			<input type="number" min="1">
+ 		 			<input type="number" min="1" id="pKusov" value="1">
  		 		</label>
  		 		
  		 		<p>Skladom: </p>
 
- 		 		<input type="submit" value="PRIDAŤ">
+ 		 	
+ 		 		<input type="submit" value="PRIDAŤ" id="pridat" onclick="closeNav()">
  		 	</div>
   		</div>
 	</div>
 
+	<div id="shoppingCart" class="overlay">
+		<div class="cartContent">
+			<a href="javascript:void(0)" class="closeX" onclick="closeNav()">&times;</a>
+		</div>
+	</div>
 
 	<footer>
 		<p>Vytvoril: Peter Huňady, Jakub Šepeľa</p>
 		<p>©Všetky práva vyhradené</p>
 	</footer>
+
 
 
 
@@ -263,16 +269,45 @@
       		document.getElementById("myNav").style.width = "100%";
     		var image = this.parentElement.children[0].src;
     		var name = this.parentElement.children[1].innerHTML;
-    		var price = "Cena za kus: "+this.parentElement.children[2].innerHTML;
+    		var price = this.parentElement.children[2].innerText;
 
     		document.getElementById("img").src = image;
     		document.getElementById("name").innerHTML = name;
-    		document.getElementById("cena").innerHTML = price;
+    		document.getElementById("cena").innerText = price;
   			});
 		}
 
+
+		function removeEuro(text){
+			var newNumber = "";
+
+			for (var i = 0; i < text.length-1; i++) {
+				newNumber+=text[i];
+			}
+			return newNumber;
+		}
+
+		var button = document.getElementById("pridat");
+
+		button.addEventListener('click',function(){
+			var pocetKusov = parseInt(document.getElementById("pKusov").value);
+			var nazov = document.getElementById("name").innerHTML;
+			var cenaProdukt = removeEuro(document.getElementById("cena").innerText);
+			var obrazokProdukt = document.getElementById("img").src;
+
+			console.log(pocetKusov);
+			console.log(nazov);
+			console.log(cenaProdukt);
+			console.log(obrazokProdukt);
+		});
+
 		function closeNav() {
   			document.getElementById("myNav").style.width = "0%";
+  			document.getElementById("shoppingCart").style.width = "0%";
+		}
+
+		function openCart(){
+			document.getElementById("shoppingCart").style.width = "100%";
 		}
 	</script>
 </body>

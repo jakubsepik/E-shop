@@ -150,6 +150,18 @@ nav{
 	border-radius: 50%;
 	background-color: white;
 	color: black;
+	cursor: pointer;
+}
+
+.cartContent{
+	width: 70%;
+	height: 70%;
+	background-color: white;
+	margin: 0 auto;
+	position: relative;
+  	top: 15%;
+  	text-align: center;
+  	border-radius: 10px;
 }
 
 footer{
@@ -158,6 +170,10 @@ footer{
 	color: white;
 	width: 100%;
 	text-align: center;
+}
+
+.closeX{
+	
 }
 
 footer p{
@@ -224,12 +240,17 @@ footer p{
 	padding: 50px 0 80px 0;
 }
 
-.info p, .info label{
+
+.info p, .info label, .info span{
 	font-size: 18px;
 	text-align: left;
 	padding: 10px;
 	display: block;
 	font-weight: 600;
+}
+
+.info span{
+	float: left;
 }
 
 input[type=number] {
@@ -377,7 +398,7 @@ input[type=submit]:hover{
 		font-weight: 900;
 	}
 
-	.info p, .info label{
+	.info span, .info label, .info p{
 		padding-left: 5%;
 	}
 
