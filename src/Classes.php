@@ -44,6 +44,5 @@ function preventSQLInjection($code, $mysqli, $array){
     $types = str_repeat('s', count($array)); //types
     $stmt->bind_param($types, ...$array); // bind array at once
     $stmt->execute();
-    $result = $stmt->get_result(); // get the mysqli result
-    return $data = $result->fetch_all(MYSQLI_ASSOC); // fetch the data
+    //return $data = $result->fetch_all(MYSQLI_ASSOC); // fetch the data
 }

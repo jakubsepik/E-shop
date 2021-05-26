@@ -1,6 +1,6 @@
 {
     "servername":"localhost",
-    "username":"root",
-    "password":"",
+    "username":"eshop",
+    "password":"eshop",
     "database":"eshop"
 }

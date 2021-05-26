@@ -1,5 +1,18 @@
 <?php
-header('Access-Control-Allow-Origin: *');
+include_once('Classes.php');
+$config = json_decode(file_get_contents("config.json"));
+
+$mysqli = new mysqli($config->servername,$config->username,$config->password,$config->database);
+
+if(isset($_POST['name'])){
+	
+	$orders = new Orders;
+	$orders->addOrder($mysqli,$_POST['name'],"surname","email","tel_num","address","PENDING","ps","city");
+	$result = $mysqli->query("SELECT max(order_id) FROM orders");
+	print_r($result);
+
+	exit();
+  }
 ?>
 <!DOCTYPE html>
 <html>
@@ -55,15 +68,8 @@ header('Access-Control-Allow-Origin: *');
 			
 	
 <?php
-include_once("Classes.php");
 
-if(isset($_POST['name'])){
-  echo $_POST['name'];
-  echo print_r($_SESSION['items']);
-}
-$config = json_decode(file_get_contents("config.json"));
 
-$mysqli = new mysqli($config->servername,$config->username,$config->password,$config->database);
 
 
 $items_array = array();
@@ -112,7 +118,7 @@ foreach($items_array as $item){
 </body>
 </html>
 
-<form action="shop.php" method="POST">
+<form action="index.php" method="POST">
 <input type="text" name="name" placeholder="Your name">
 <input type="text" name="surname">
 <input type="email" name="email">
