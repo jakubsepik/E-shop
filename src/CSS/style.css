@@ -1,3 +1,4 @@
+/* Hlavička */
 header{
 	background-color: rgb(212,92,12);
 	height: 80px;
@@ -6,21 +7,25 @@ header{
 	margin: 0 auto;
 }
 
+/* Hlavný obsah stránky */
 article{
 	width: 100%;
 	background-color: white;
 }
 
+/* Logo, popis e-shopu */
 nav{
 	height: 200px;
 	width: 100%;
 }
 
+/* Nadpis v hlaičke, */
 .nadpis{
 	font-size: 70px;
 	font-weight: bold;
 }
 
+/* Logo */
 .logo{
 	height: 100%;
 	margin-left: 10%;
@@ -28,53 +33,62 @@ nav{
 	display: block;
 }
 
-.idk{
+/* Popis stránky */
+.popisStranky{
 	padding-top: 60px;
 	float: right;
 	text-align: right;
 	margin-right: 13%;
 }
 
-.idk h1{
+/* Popis stránky h1 */
+.popisStranky h1{
 	font-size: 50px;
 	font-weight: bold;
 	font-style: italic;
 	color: rgb(212,92,12);
 }
 
-.idk p{
+/* Popis stránky p */
+.popisStranky p{
 	font-style: italic;
 	font-size: 18px;
 }
 
+/* Kontaktné údaje */
 .kontakt{
 	height: 45px;
 	background-color: rgb(212,92,12);
 	line-height: 45px;
 }
 
+/* Kontaktné údaje text*/
 .kontakt div p{
 	font-weight: 600;
 	color: black;
 	font-size: 20px;
 }
 
+/* Div s telefónnym číslom */
 .phone{
 	text-align: center;
 	width: 50%;
 	float: left;
 }
 
+/* Div s e-mailom */
 .email{
 	text-align: center;
 	width: 50%;
 	float: right;
 }
 
+/* Telefónne číslo kontakt */
 .phone p{
 	padding-left: 20%;
 }
 
+/* E-mail kontakt */
 .email p{
 	padding-right: 20%;
 }
@@ -91,6 +105,7 @@ nav{
 	font-size: 
 }
 
+/* Jeden riadok s produktami */
 .row {
 	width: 80%;
 	margin: 0 auto;
@@ -98,30 +113,35 @@ nav{
     text-align: center;
 }
 
+/* Jeden produkt */
 .item{
     flex: 1;
     margin: 1% 0.5%;
-}
-
-.item img{
-	width: 100%;
 }
 
 .item:hover{
 	box-shadow: 5px 5px 15px -3px rgba(0,0,0,0.7);
 }
 
+/* Obrázok produktu */
+.item img{
+	width: 100%;
+}
+
+/* Názov produktu */
 .item h2{
 	font-weight: 900;
 	font-size: 21px;
 	padding: 10px 0;
 }
 
+/* Cena produktu */
 .item p{
 	font-size: 17px;
 	padding-bottom: 15px;
 }
 
+/* Tlačidlo s ikonou košíka pod produktom */
 .kosik{
 	width: 75%;
 	margin: 0 auto;
@@ -140,6 +160,7 @@ nav{
 	background-color: #E67326;
 }
 
+/* Ikona košíka v pravo dole na stránke */
 .cart{
 	box-shadow: 2px 2px 7px 1px rgba(0,0,0,0.22);
 	font-size: 25px;
@@ -153,6 +174,7 @@ nav{
 	cursor: pointer;
 }
 
+/* Obsah overlayu košíka */
 .cartContent{
 	width: 70%;
 	height: 70%;
@@ -164,6 +186,117 @@ nav{
   	border-radius: 10px;
 }
 
+/* Nadpis "Tvoj košík:" */
+.cartContent h1{
+	font-size: 35px;
+	font-weight: 600;
+	padding: 40px 0; 
+}
+
+/* Tlačídlo X na zatvorenie overlayov */
+.closeX{
+	position: absolute;
+	color: rgb(212,92,12);
+  	text-decoration: none;
+  	font-size: 50px;
+  	right: 1%;
+  	top: 0%;
+  	z-index: 101;
+}
+
+/* Vysvetlivky v košíku */
+.infoCart{
+	width: 80%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	font-weight: 600;
+}
+
+/* Pomocný div pre dizajn */
+.pom{
+	width: 75px;
+	float: left;
+	margin: 2px;
+}
+
+.pom p{
+	display: block;
+	padding-right: 50px;
+	margin-right: 50px; 
+}
+
+/* Div, do ktorého sa ukladajú produkty po pridaní do košíka */
+#kosikObalovac{
+	width: 80%;
+	background-color: #F2F2F2;
+	margin: 0 auto;
+	max-height: 60%;
+	overflow-y: scroll;
+}
+
+/* Obsah v košíku s obrázkom, názvom, počtom kusov a cenou */
+#contentInCart{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 1px solid black;
+}
+
+#contentInCart:last-child{
+	border-bottom: 0px solid black;
+}
+
+#contentInCart img{
+	width: 75px;
+	height: 75px;
+	float: left;
+	margin: 2px;
+}
+
+#contentInCart p{
+	display: inline-block;
+	line-height: 79px;
+	font-size: 18px;
+}
+
+/* Div, ktorý nám obaľuje celkovú cenu a tlačidlo na pokračovanie v objednávke */
+.obalovac{
+	position: absolute;
+	bottom: 2%;
+	right: 2%;
+	text-align: center;
+	font-size: 22px;
+}
+
+/* Celková cena produktu */
+.celkovaCena{
+	position: relative;
+	right: 80%;
+	padding: 10px;
+	float: left;
+}
+
+/* Tlačídlo pokračovať */
+#objednat{
+	float: left;
+	cursor: pointer;
+}
+
+#objednat p{
+	padding: 10px;
+	background-color: rgb(212,92,12);
+	font-weight: 300;
+	border-radius: 5px;
+	color: white; 
+}
+
+#objednat p:hover{
+	border-radius: 5px;
+	background-color: #E67326;
+}
+
+/* Pätička s informáciami o autoroch a právami */
 footer{
 	margin-top: 5%;
 	background-color: black;
@@ -172,14 +305,11 @@ footer{
 	text-align: center;
 }
 
-.closeX{
-	
-}
-
 footer p{
 	padding: 10px;
 }
 
+/* Overlay pre pridanie produktu do košíka, košík s pridanými produktami a objednávku s formulárom*/
 .overlay {
   	height: 100%;
   	width: 0;
@@ -192,6 +322,7 @@ footer p{
   	overflow-x: hidden;
 }
 
+/* Obsah overlayu */
 .overlay-content {
   	position: relative;
   	top: 25%;
@@ -204,6 +335,7 @@ footer p{
   	border-radius: 10px;
 }
 
+/* Tlačidlo X na zatvorenie overlayu */
 .closebtn{
 	position: absolute;
 	color: rgb(212,92,12);
@@ -214,6 +346,7 @@ footer p{
   	z-index: 101;
 }
 
+/* Obrázok v overlayi pre pridanie obrázku do košíka */
 .obrazokKosik{
 	height: 100%;
 	width: 50%;
@@ -227,6 +360,7 @@ footer p{
 	top: 33%;
 }
 
+/* Div s názvom, cenou, počtom kusov na objednanie a počtom kusov na sklade */
 .info{
 	width: 50%;
 	height: 100%;
@@ -234,13 +368,14 @@ footer p{
 	text-align: center;
 }
 
+/* Názov produktu */
 .info h2{
 	font-size: 25px;
 	font-weight: 900;
 	padding: 50px 0 80px 0;
 }
 
-
+/* Cena produktu */
 .info p, .info label, .info span{
 	font-size: 18px;
 	text-align: left;
@@ -253,12 +388,14 @@ footer p{
 	float: left;
 }
 
-input[type=number] {
-	width: 15%;
+/* Input, do ktorého zadáme počet kusov, ktoré chceme objednať */
+.info input[type=number] {
+	width: 12%;
 	font-size: 18px;
 }
 
-input[type=submit] {
+/* Tlačidlo na pridanie produktu do košíka */
+.info input[type=submit] {
 	position: sticky;
 	width: 30%;
 	left: 65%;
@@ -272,93 +409,173 @@ input[type=submit] {
 	color: white;
 }
 
-input[type=submit]:hover{
+.info input[type=submit]:hover{
 	background-color: #E67326;
 }
 
+/* Divy s inputmi */
+.menoPriezvisko, .cisloEmail, .adresaMestoPSC{
+	width: 100%;
+}
+
+/* Inputy do ktorých zadávame meno, priezvisko, telefónne číslo a e-mail */
+.meno, .priezvisko, .cislo, .eemail{
+	width: 47.5% !important;
+	float: left;
+	margin: 0 1%;
+	text-align: left;
+	padding-bottom: 30px;
+}
+
+/* Inputy do ktorých zadávame adresu, mesto a PSČ */
+.adresa, .mesto, .psc{
+	width: 31%;
+	text-align: left;
+	float: left;
+	margin: 0 1%;
+}
+
+/* Label s "nadpisom" inputu */
+form label{
+	padding-top: 20px;
+	font-size: 18px;
+}
+
+/* Inputy */
+form input{
+	width: 100%;
+	height: 35px;
+	border-radius: 5px;
+	background-color: #F2F2F2;
+}
+
+/* Tlačidlo submit na odoslanie údajov a potvdrenie objednávky */
+.objednatTovar{
+	width: 100%;
+	padding-top: 300px;
+}
+
+.objednatTovar input{
+	width: 40%;
+	background-color: rgb(212,92,12);
+	color: white;
+	font-size: 20px;
+	font-weight: 600;
+	cursor: pointer;
+	height: 50px;
+}
+
+.objednatTovar input:hover{
+	background-color: #E67326;
+}
+
+/* Responzívny dizajn pre tablety */
 @media (min-width: 700px) and (max-width: 1025px){
+	/* Logo stránky */
 	.logo{
 		margin-left: 6%;
 	}
 
-	.idk{
+	/* Popis stránky */
+	.popisStranky{
 		margin: 0;
 		padding-right: 8%;
 	}
 
+	/* Riadok s produktami */
 	.row{
 		display: inline-block;
 		margin-left: 10%;
 	}
 
+	/* Jeden produkt */
 	.item{
 		display: inline-block;
 		width: 48.2%;
 	}
 
+	/* Ikona košíka pod produktom */
 	.kosik{
 		width: 60%;
 	}
 
+	/* Ikona košíka v pravo dole na stránke */
 	.cart{
 		font-size: 22px;
 	}
 
+	/* Obsah overlayu */
 	.overlay-content{
 		width: 75%;
 	}
 
+	/* Obrázok v overlayi pre pridanie produktu do košíka */
 	.obrazokKosik img{
 		width: 100%;
 	}
 
+	/* Tlačidlo na zavretie overlayu */
 	.closebtn{
   		right: 14%;
 	}
 
-	input[type=submit] {
+	/* Tlačidlo na pridanie produktu do košíka */
+	.info input[type=submit] {
 		left: 75%;
+	}
+
+	/* Obsah v košíku */
+	.cartContent{
+		width: 100%;
 	}
 }
 
-@media (max-width: 699px){
-	
+/* Responzívny dizajn pre mobily */
+@media (max-width: 700px){
+	/* Hlavička */
 	header{
 		height: 60px;
 	}
 
+	/* Názov stránky */
 	.nadpis{
 		font-size: 55px;
 	}
 
+	/* Logo, popis e-shopu */
 	nav{
 		height: 150px;
 	}
 
-	.idk h1{
-		font-size: 30px;
-	}
-
-	.logo{
-		margin-left: 0;
-	}
-
-	.idk{
+	/* Popis stránky */
+	.popisStranky{
 		margin-right: 2%;
 		float: none;
 		padding-top: 30px;
 	}
 
+	.popisStranky h1{
+		font-size: 30px;
+	}
+
+	/* Logo stránky */
+	.logo{
+		margin-left: 0;
+	}
+
+	/* Kontaktné údaje */
 	.kontakt{
 		height: 70px;
 		line-height: 35px;
 	}
 
+	/* Telefónne číslo */
 	.phone{
 		width: 100%;
 		border-bottom: 1px solid black;
 	}
 
+	/* E-mail */
 	.email{
 		width: 100%;
 		float: none;
@@ -368,45 +585,85 @@ input[type=submit]:hover{
 		padding: 0;
 	}
 
+	/* Jeden riadok s produktami */
 	.row{
 		display: block;
 	}
 
+	/* Jeden produkt */
 	.item{
 		display: block;
 		width: 80%;
 		margin: 0 auto
 	}
 
+	/* Ikona košíka v pravo dole na stránke */
 	.cart{
 		font-size: 18px;
 	}
 
+	/* Obsah overlayu */
 	.overlay-content{
 		width: 100%;
 	}
 
+	/* Obrázok v overlayi pre pridanie produktu do košíka */
 	.obrazokKosik{
 		display: none;
 	}
 
+	/* Div s názvom, cenou, počtom kusov na objednanie a počtom kusov na sklade */
 	.info{
 		width:100%;
 	}
 
+	/* Názov produktu */
 	.info h2{
 		font-weight: 900;
+		padding: 50px 0 50px 0;
 	}
 
+	/* Cena prduktu*/
 	.info span, .info label, .info p{
 		padding-left: 5%;
 	}
 
+	/* Tlačidlo na zatvorenie overlayu */
 	.closebtn{
   		right: 1%;
 	}
 
-	.info h2{
-		padding: 50px 0 50px 0;
+	/* Obsah overlayu v košíku */
+	.cartContent{
+		width: 100%;
+	}
+
+	/* Div, do ktorého sa ukladajú produkty po pridaní do košíka */
+	#kosikObalovac {
+		width: 95%;
+	}
+
+	/* Vysvetlivky v košíku */
+	.infoCart{
+		width: 95%;
+	}
+
+	/* Obsah v košíku s obrázkom, názvom, počtom kusov a cenou */
+	#contentInCart p {
+    	font-size: 16px;
+	}
+
+	/* Celková cena všetkých produktov v košíku */
+	.celkovaCena{
+		position: relative;
+		right: 38%;
+		padding: 10px;
+		float: left;
+	}
+
+	/* Input, do ktorého zadáme počet kusov, ktoré chceme objednať */
+	.info input[type=number] {
+		width: 8%;
+		font-size: 18px;
 	}
 }
