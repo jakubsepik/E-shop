@@ -234,7 +234,7 @@ foreach($items_array as $item){
 					<div class="eemail">
 						<!-- E-mail -->
 						<label for="email">E-mail:</label>
-						<input type="email" name="email" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" placeholder="you@something.com" required>
+						<input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="you@something.com" required>
 					</div>
 				</div>
 
@@ -242,19 +242,19 @@ foreach($items_array as $item){
 					<!-- Adresa -->
 					<div class="adresa">
 						<label for="address">Adresa:</label>
-  						<input type="text" name="address" placeholder="Adresa" required>
+  						<input type="text" name="address" placeholder="Adresa" required minlength="2" maxlength="255">
 					</div>
 
 					<!-- Mesto -->
 					<div class="mesto">
 						<label for="city">Mesto:</label>
-  						<input type="text" name="city" placeholder="Mesto" required>
+  						<input type="text" name="city" placeholder="Mesto" required minlength="2" maxlength="255">
 					</div>
 
 					<!-- PSČ -->
 					<div class="psc">
 						<label for="PS">PSČ:</label>
-  						<input type="text" name="PS" placeholder="PSČ" required>
+  						<input type="text" name="PS" placeholder="PSČ" required pattern="[0-9]{5}" maxlength="5">
 					</div>
 				</div>
 
