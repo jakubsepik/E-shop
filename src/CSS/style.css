@@ -101,9 +101,6 @@ nav{
 	font-weight: 600;
 }
 
-.produkty p{
-	font-size: 
-}
 
 /* Jeden riadok s produktami */
 .row {
@@ -361,7 +358,7 @@ footer p{
 }
 
 /* Div s názvom, cenou, počtom kusov na objednanie a počtom kusov na sklade */
-.info{
+#info{
 	width: 50%;
 	height: 100%;
 	float: left;
@@ -369,14 +366,16 @@ footer p{
 }
 
 /* Názov produktu */
-.info h2{
-	font-size: 25px;
+#info h2{
+	font-size: 25px; 
 	font-weight: 900;
 	padding: 50px 0 80px 0;
 }
-
+#info label{
+	float:left;
+}
 /* Cena produktu */
-.info p, .info label, .info span{
+#info p, #info label, #info span{
 	font-size: 18px;
 	text-align: left;
 	padding: 10px;
@@ -384,18 +383,19 @@ footer p{
 	font-weight: 600;
 }
 
-.info span{
+#info span{
 	float: left;
 }
 
 /* Input, do ktorého zadáme počet kusov, ktoré chceme objednať */
-.info input[type=number] {
+#info input[type=number] {
 	width: 12%;
 	font-size: 18px;
+	float: left;
 }
 
 /* Tlačidlo na pridanie produktu do košíka */
-.info input[type=submit] {
+#info input[type=submit] {
 	position: sticky;
 	width: 30%;
 	left: 65%;
@@ -409,7 +409,7 @@ footer p{
 	color: white;
 }
 
-.info input[type=submit]:hover{
+#info input[type=submit]:hover{
 	background-color: #E67326;
 }
 
@@ -520,7 +520,7 @@ form input{
 	}
 
 	/* Tlačidlo na pridanie produktu do košíka */
-	.info input[type=submit] {
+	#info input[type=submit] {
 		left: 75%;
 	}
 
@@ -613,18 +613,18 @@ form input{
 	}
 
 	/* Div s názvom, cenou, počtom kusov na objednanie a počtom kusov na sklade */
-	.info{
+	#info{
 		width:100%;
 	}
 
 	/* Názov produktu */
-	.info h2{
+	#info h2{
 		font-weight: 900;
 		padding: 50px 0 50px 0;
 	}
 
 	/* Cena prduktu*/
-	.info span, .info label, .info p{
+	#info span, #info label, #info p{
 		padding-left: 5%;
 	}
 
@@ -662,7 +662,7 @@ form input{
 	}
 
 	/* Input, do ktorého zadáme počet kusov, ktoré chceme objednať */
-	.info input[type=number] {
+	#info input[type=number] {
 		width: 8%;
 		font-size: 18px;
 	}

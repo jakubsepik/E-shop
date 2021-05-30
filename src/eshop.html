@@ -471,6 +471,7 @@
 
 	<script type="text/javascript">
 		//JavaScript
+		
 		var shoppingItems = document.getElementsByClassName("kosik");
 
 		//Cyklus pomocou ktorého vieme pridávať produkty do košíka, vybrať obrázok, názov a cenu.
@@ -501,6 +502,12 @@
 
 		//Keď klikneme na tlačidlo pridať do košíka, vyberie sa obrázok, počet kusov, cena a názov produktu, ktorý sa vloží do košíka 
 		button.addEventListener('click',function(){
+			shoppingcart.push({"data":12});
+		
+
+
+
+
 			//Vytvorí sa nový div, do ktorého budeme vkladať produkty po stlačení tlačidla pridať
 			var element = document.createElement("div");
 			document.getElementById("kosikObalovac").appendChild(element);
