@@ -1,4 +1,5 @@
 <?php
+//trieda na vytvaranie objektov na items
 class Items{
     private $item_id;
     private $name;
@@ -11,24 +12,24 @@ class Items{
        $this->count = $row["count"];
        $this->price = $row["price"];
     }
-
+    //vratenie array z parametrov v arrayi
     public function getDataArray(){
         return array($this->item_id,$this->name,$this->count,$this->price);
     }
 
 }
-
+//trieda na pridávanie objednávok
 class Orders{
 
     public function addOrder($mysqli,$name,$surname,$email,$tel_num,$city,$address,$ps)
     {
         $code = "INSERT INTO `orders` (`order_id`, `name`, `surname`, `email`, `tel_num`, `address`, `status`, `ps`, `city`) VALUES (?,?,?,?,?,?,?,?,?);";
         $array = array(NULL, $name, $surname, $email, $tel_num, $address,'PENDING',$ps,$city);
-        preventSQLInjection($code,$mysqli,$array);
+        return preventSQLInjection($code,$mysqli,$array,true);
     }
 
 }
-
+//trieda na pridávanie objednáných položiek
 class Order_items{
     public function addOrderItem($mysqli,$order_id,$item_id,$count,$price)
     {
@@ -38,11 +39,12 @@ class Order_items{
         preventSQLInjection($code,$mysqli,$array);
     }
 }
-
-function preventSQLInjection($code, $mysqli, $array){
-    $stmt  = $mysqli->prepare($code); // prepare
-    $types = str_repeat('s', count($array)); //types
-    $stmt->bind_param($types, ...$array); // bind array at once
+//funkcia na prevenciu sql insertion
+function preventSQLInjection($code, $mysqli, $array,$getId=false){
+    $stmt  = $mysqli->prepare($code); 
+    $types = str_repeat('s', count($array)); 
+    $stmt->bind_param($types, ...$array); 
     $stmt->execute();
-    //return $data = $result->fetch_all(MYSQLI_ASSOC); // fetch the data
+    if($getId==true)
+     return $mysqli->insert_id;
 }

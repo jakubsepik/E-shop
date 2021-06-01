@@ -1,27 +1,28 @@
-<?php
-include_once('Classes.php');
-$config = json_decode(file_get_contents("config.json"));
-
-$mysqli = new mysqli($config->servername,$config->username,$config->password,$config->database);
-
-if(isset($_POST['name'])){
-	
-	$orders = new Orders;
-	$orders->addOrder($mysqli,$_POST['name'],"surname","email","tel_num","address","PENDING","ps","city");
-	$result = $mysqli->query("SELECT max(order_id) FROM orders");
-	print_r($result);
-	echo $mysqli->insert_id;
-
-	exit();
-  }
-?>
-
-<!DOCTYPE html>
-<html>
-<head>
 	<!-- E-shop Nabytok.sk -->
 	<!-- Vytvoril Peter Huňady & Jakub Šepeľa -->
 	<!-- 1.6.2021 -->
+<!DOCTYPE html>
+<html>
+<head>
+
+<?php
+//výpis splnenia objednávky
+session_start();
+if(isset($_SESSION['send']))
+if($_SESSION['send']==true){
+	echo "<script>alert('Objednávka prebehla úspešne')</script>";
+	session_destroy();
+}
+//import tried a kofiguračných údajov
+include_once('Classes.php');
+$config = json_decode(file_get_contents("config.json"));
+
+//pripojenie na databázu
+$mysqli = new mysqli($config->servername,$config->username,$config->password,$config->database);
+
+
+?>
+
 
 	<!-- Title s názvom stránky -->
 	<title>Nabytok.sk</title>
@@ -91,18 +92,19 @@ $items_array = array();
 $result = $mysqli->query("SELECT * FROM items");
 
 if ($result->num_rows > 0) {
-  // output data of each row
+  // uloženie dát dát z každéhp riadka
   while($row = $result->fetch_assoc()) {
     array_push($items_array,new Items($row));
   }
 } else {
-  echo "Shop is empty";
+  echo "Obchod je prázdny";
 }
+//výpis každej položky z items
 $row = 0;
 foreach($items_array as $item){
   $data = $item->getDataArray();
 
-
+	if($data[2]!=0)
   echo '<div class="item" data-count="'.$data[2].'" data-id="'.$data[0].'">
     <img src="img/'.$data[0].'.jpg">
 
@@ -112,6 +114,8 @@ foreach($items_array as $item){
         <i class="fas fa-shopping-cart"></i>
       </div>
   </div>';
+  	else
+ 	 $row--;
 
   if(++$row%4==0)
   echo '</div><div class="row">';
@@ -208,7 +212,7 @@ foreach($items_array as $item){
 			<h1>Objednávka</h1>
 
 			<!-- Formular -->
-			<form>
+			<form action="shop.php" method="POST">
 
 				<div class="menoPriezvisko">
 					<!-- Meno -->
@@ -234,7 +238,7 @@ foreach($items_array as $item){
 					<div class="eemail">
 						<!-- E-mail -->
 						<label for="email">E-mail:</label>
-						<input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="you@something.com" required>
+						<input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" placeholder="you@something.com" required>
 					</div>
 				</div>
 
@@ -242,7 +246,7 @@ foreach($items_array as $item){
 					<!-- Adresa -->
 					<div class="adresa">
 						<label for="address">Adresa:</label>
-  						<input type="text" name="address" placeholder="Adresa" required minlength="2" maxlength="255">
+  						<input type="text" name="address" placeholder="Adresa 12" required minlength="2" maxlength="255">
 					</div>
 
 					<!-- Mesto -->
@@ -254,7 +258,7 @@ foreach($items_array as $item){
 					<!-- PSČ -->
 					<div class="psc">
 						<label for="PS">PSČ:</label>
-  						<input type="text" name="PS" placeholder="PSČ" required pattern="[0-9]{5}" maxlength="5">
+  						<input type="text" name="PS" placeholder="01234" required pattern="[0-9]{5}" maxlength="5">
 					</div>
 				</div>
 
@@ -344,9 +348,8 @@ foreach($items_array as $item){
 			  var element = document.getElementById("pKusov");
 			  if(typeof(element) != 'undefined' && element != null)
 				element.remove();
-			var element2 = document.getElementById("contentInCart");
-			if(typeof(element2) != 'undefined' && element2 != null)
-				element2.remove();
+			document.getElementById("kosikObalovac").innerHTML="";
+			
 
 			
 				
@@ -362,7 +365,8 @@ foreach($items_array as $item){
 				var dokopyCena=0;
 			for (const key in shoppingcart){
 				if(shoppingcart.hasOwnProperty(key)){
-				//Vytvorí sa nový div, do ktorého budeme vkladať produkty po stlačení tlačidla pridať
+				//Vytvorí sa nový div, do ktorého budeme vkladať produkty
+				
 				var element = document.createElement("div");
 				document.getElementById("kosikObalovac").appendChild(element);
 				element.setAttribute("id", "contentInCart");
@@ -391,7 +395,7 @@ foreach($items_array as $item){
 
 				//vytvorenie ceny produktu v overlayu košíka
 				var cp = document.createElement("p");
-				var cptext = document.createTextNode(cenaProdukt+"€");
+				var cptext = document.createTextNode(cenaProdukt.toFixed(2)+"€");
 				cp.appendChild(cptext);
 
 
@@ -406,13 +410,22 @@ foreach($items_array as $item){
 					
 			}
 			var p =document.createElement("p");
-			p.innerHTML="Dokopy: "+dokopyCena+"€";
+			p.innerHTML="Dokopy: "+dokopyCena.toFixed(2)+"€";
 			document.getElementsByClassName("celkovaCena")[0].appendChild(p);
 			document.getElementById("shoppingCart").style.width = "100%";
 		}
 
 		//Funkcia, ktorá nám otvorí overlay objednávky s formulárom
 		function openObjednavka(){
+			element = document.getElementById("hiddenInput");
+			if(typeof(element) != 'undefined' && element != null)
+				element.setAttribute("value",JSON.stringify(shoppingcart));
+			else{
+				var hiddenInput = document.createElement("input");
+				setAttributes(hiddenInput,{"name":"jsonId","id":"hiddenInput","type":"hidden","value":JSON.stringify(shoppingcart)});
+				document.getElementsByClassName("cartContent")[1].querySelectorAll("form")[0].append(hiddenInput);
+			}
+			
 			document.getElementById("objednavka").style.width="100%";
 		}
 
