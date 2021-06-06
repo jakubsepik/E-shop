@@ -105,11 +105,11 @@ foreach($items_array as $item){
   $data = $item->getDataArray();
 
 	if($data[2]!=0)
-  echo '<div class="item" data-count="'.$data[2].'" data-id="'.$data[0].'">
-    <img src="img/'.$data[0].'.jpg">
+  echo '<div class="item" data-count="'.htmlspecialchars($data[2]).'" data-id="'.htmlspecialchars($data[0]).'">
+    <img src="img/'.htmlspecialchars($data[0]).'.jpg">
 
-    <h2>'.$data[1].'</h2>
-    <p>'.$data[3].'€</p>
+    <h2>'.htmlspecialchars($data[1]).'</h2>
+    <p>'.htmlspecialchars($data[3]).'€</p>
       <div class="kosik">
         <i class="fas fa-shopping-cart"></i>
       </div>
